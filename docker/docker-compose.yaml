@@ -1,0 +1,16 @@
+services:
+
+  database-postgres:
+    container_name: database-postgres
+    build:
+      context: ./database-postgres
+      dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
+    volumes:
+      -  db_volume:/var/lib/postgresql/data
+      - ./database-postgres/backups:/backups
+    restart: always
+
+volumes:
+  db_volume:
