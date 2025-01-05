@@ -1,11 +1,21 @@
 # Repositório de Configurações do Banco de Dados
 
+Para que o script se adeque ao seu ambiente, você precisa fazer algumas alterações no Dockerfile e Makefile.
+
 Altere o arquivo [Dockerfile](./Dockerfile), onde troque `YOUR_POSTGRES_DB`, `YOUR_POSTGRES_USER` `YOUR_POSTGRES_PASSWORD` por suas respectivas credenciais de acesso validas:
 
 ```bash
 ENV POSTGRES_DB=YOUR_POSTGRES_DB
 ENV POSTGRES_USER=YOUR_POSTGRES_USER
 ENV POSTGRES_PASSWORD=YOUR_POSTGRES_PASSWORD
+```
+
+Altere o arquivo [Makefile](./Makefile), onde troque `YOUR_DB_NAME` e `YOUR_DB_USER` pelas mesmas credenciais de acesso validas que passou no Dockerfile. Além disso, substitua `YOUR_DB_CONTAINER_NAME` pelo nome do seu container do PostgreSQL que você criou no arquivo [docker-compose.yml](../docker-compose.yaml):
+
+```bash
+DB_NAME=YOUR_DB_NAME
+DB_USER=YOUR_DB_USER
+CONTAINER=YOUR_DB_CONTAINER_NAME
 ```
 
 ## Backup
